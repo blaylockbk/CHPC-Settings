@@ -1,0 +1,18 @@
+README.git
+
+My customization files for working in the Utah Center for High 
+Perfomrance Computing (CHPC) environment at the University of
+Utah.
+
+.tcshrc     - Settings that you arn't supposed to tweek, but I 
+              added a line at the bottom for know. That probably
+              should be moved to the .custom file.
+
+.aliases    - My personal aliases. Not sure what everything does
+              or if everything is really necessary.
+
+.custom.csh - Loading custom modules, different settings depending
+              on the node you log onto.
+              These *should* be the current settings for a
+              successful compile of WRF. Latest checked with 
+              WRF 3.8.1. 

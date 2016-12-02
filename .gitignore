@@ -6,6 +6,7 @@
 !.tcshrc
 !.aliases
 !.custom.csh
+!README.git
 
 # ...even if they are in subdirectories
 # !*/ # commented out becuase I want to block items in other dirs
