@@ -67,6 +67,3 @@ if ( $?prompt == 0 ) then
 endif
 set autolist                # list completions when the tab key is hit
 unset autologout
-
-# Stuff I added
-setenv LD_LIBRARY_PATH "/usr/local/lib:$LD_LIBRARY_PATH"
