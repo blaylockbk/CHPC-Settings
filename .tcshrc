@@ -1,0 +1,72 @@
+# please send comments/suggestions to issues@chpc.utah.edu
+# currently works on all CHPC based clusters and on Linux desktops
+
+# Test if UUFSCELL is defined, if not, see if uufs.csh exists and if it does source it - this fixed problems with crontab
+if (!($?UUFSCELL) && (-e /etc/profile.d/uufs.csh)) then
+   source /etc/profile.d/uufs.csh
+endif
+
+# Init. modules before setting UUFSCELL
+# Unset MODULEPATH + set LUA + LMOD
+
+#AML short fix for $TERM bug with modules
+if !($?TERM) then
+  setenv TERM "blah"
+  setenv TERMFIX "yes"
+endif
+#end fix
+
+source /uufs/chpc.utah.edu/sys/modulefiles/scripts/module_init/module_init.csh
+
+#AML short fix for $TERM bug with modules
+if($?TERMFIX) then
+  unsetenv TERMFIX
+  unsetenv TERM
+endif
+#end fix
+
+# stacksize by default is very small, which causes programs with large static data to segfault
+limit stacksize unlimited
+
+# create .pbs_spool if not created already
+if (!(-d $HOME/.pbs_spool)) mkdir $HOME/.pbs_spool
+
+#load aliases
+if ( -f "$HOME/.aliases" ) then
+   source ~/.aliases
+endif
+
+if ($?UUFSCELL) then
+
+  # exit if .tcshrc was loaded by a parent shell
+  # execute this only on the clusters since on desktops env. var. stays defined
+  # for all new terminals# update Jan11 - screen does not inherit parent's LD_LIBRARY_PATH so if in screen, 
+  # load up the whole environment again - here we risk that the PATH will become too long though
+  if ( $?TCSHRC_LOADED ) then
+     if !($?TERM) exit
+     if ($TERM != "screen" ) exit
+  endif
+
+  #      if ( $?TCSHRC_LOADED ) exit
+  setenv TCSHRC_LOADED 1
+
+  if ( -f "$HOME/.custom.csh" ) then
+     source $HOME/.custom.csh
+  endif
+
+endif
+
+# Get out if terminal is not interactive or we're a root
+if ($?USER == 0 || $?TERM == 0) then
+    exit
+endif
+
+# User defined global terminal customizations valid only on interactive terminals
+if ( $?prompt == 0 ) then
+  set prompt="%m:%B%c2%b%#%"   # command prompt
+endif
+set autolist                # list completions when the tab key is hit
+unset autologout
+
+# Stuff I added
+setenv LD_LIBRARY_PATH "/usr/local/lib:$LD_LIBRARY_PATH"

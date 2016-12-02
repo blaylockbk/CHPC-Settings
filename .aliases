@@ -1,0 +1,79 @@
+
+#
+#     LDM
+#
+      setenv LDM /uufs/arches/sys/pkg/ldm/std
+      setenv PATH "$LDM/bin:$PATH"
+      setenv LDMHOME /uufs/arches/sys/pkg/ldm/std
+
+#     NCO
+#
+  ##  setenv LD_LIBRARY_PATH "/uufs/arches/sys/pkg/nco/std/lib:$LD_LIBRARY_PATH" 
+      setenv PATH "/uufs/arches/sys/pkg/nco/std/bin:$PATH"
+#
+#     RIP
+#
+#     Jim's Version
+      ##setenv RIP_ROOT /uufs/chpc.utah.edu/common/home/u0028395/RIP4
+      ##setenv PATH "${RIP_ROOT}:$PATH"
+#     Erik Neeman's Version
+      setenv RIP_ROOT /uufs/chpc.utah.edu/common/home/u0818471/RIP5/RIP4
+
+	  
+#     No Pathscale (WRF compile opptions 2 and 3)
+##### UNCOMMENT THIS LINE AFTER HEARING FROM CHPC
+##### source /uufs/$UUFSCELL/sys/pkg/mpich2/std_pgi/etc/mpich2.csh
+#
+#     Give me direct access to executables in my current directory
+#
+      setenv PATH ".:$PATH"
+#
+#     Block those nasty core dumps
+#
+      limit coredumpsize 0
+#
+#  Settings and aliases
+#
+
+
+alias sourcepy 'source /uufs/chpc.utah.edu/sys/pkg/python/2.7.3/etc/python.csh'
+
+
+set prompt = "%BGoUtes %h%m%% "
+alias cd            'cd \!*;echo $cwd'
+alias xanim         'xanim +Can +T2 +V$XANIM_COLOR +j40'
+alias rm rm -i
+alias mv mv -i
+alias cp cp -i
+alias ls            'ls --color=tty'
+alias emacs 'emacs -bg white -fg black'
+alias qiv 'qiv -e -s -d 0.1'
+alias xanim 'qiv -e -s -d 0.1'
+alias metwx 'cd /uufs/chpc.utah.edu/common/home/metwx/data'
+alias archive 'cd /uufs/chpc.utah.edu/common/home/horel-group/archive'
+alias ldm 'sudo su - ldm'
+alias WRF3 'cd /uufs/chpc.utah.edu/common/home/horel-group3/horel_data/bblaylock && ls -lh'
+alias WRF4 'cd /uufs/chpc.utah.edu/common/home/horel-group4/model/bblaylock && ls -lh'
+alias WRF 'cd /compute1/scratch/bblaylock/ && ls -lh' #this is for meso3 box only
+alias coldpools 'cd /uufs/chpc.utah.edu/common/home/horel-group3/horel_data/WRF_output_coldpools'
+alias ozone 'cd /uufs/chpc.utah.edu/common/home/horel-group4/gslso3s/ && ls -lh'
+alias gl 'cd /uufs/chpc.utah.edu/host/gl'
+alias pcaps 'cd /uufs/chpc.utah.edu/common/home/metwx/pcaps.utah.edu'
+setenv METWX /uufs/chpc.utah.edu/common/home/metwx/data
+alias droman 'cd /uufs/chpc.utah.edu/common/home/metwx/mesowest.utah.edu/cgi-bin/droman'
+alias metwww 'sudo su - metwww'
+alias panoply '/uufs/chpc.utah.edu/sys/pkg/panoply/4.0.3/panoply.sh'
+
+
+# to print cirp-bw filename
+alias xmgr '/uufs/arches/sys/pkg/grace/grace-5.1.20/bin/grace/bin/xmgrace'
+alias horel-group 'cd /uufs/chpc.utah.edu/common/home/horel-group/'
+# on gl1 for thredds server
+alias thredds 'cd /uufs/hiddenarch.arches/host/pkg/tomcat/std/content/thredds'
+alias thredds_down 'sudo /uufs/hiddenarch.arches/host/pkg/tomcat/std/bin/shutdown.sh'
+alias thredds_start 'sudo /uufs/hiddenarch.arches/host/pkg/tomcat/std/bin/startup.sh'
+
+
+
+alias idv  /uufs/chpc.utah.edu/sys/pkg/idv/2.6_32/jre/bin/java -Xmx2048m -Didv.enableStereo=false -jar /uufs/chpc.utah.edu/sys/pkg/idv/2.6_32/idv.jar -sitepath ~ldm/idv/Site_Config
+

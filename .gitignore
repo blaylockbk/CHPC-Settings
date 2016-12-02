@@ -1,0 +1,11 @@
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!.tcshrc
+!.aliases
+!.custom.csh
+
+# ...even if they are in subdirectories
+# !*/ # commented out becuase I want to block items in other dirs
