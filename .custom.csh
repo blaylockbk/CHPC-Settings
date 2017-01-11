@@ -29,18 +29,18 @@ if ($UUFSCELL == "ember.arches") then
 ## DONT HAVE TO SOURCE THINGS. JUST USE 'module load' INSTEAD
 	module load pgi
 	module load mvapich2
-
 	module load perl
+    module load ncarg/6.1.2
+
 	setenv PERL5LIB /uufs/chpc.utah.edu/sys/pkg/perllib
 
 	setenv NCARG_ROOT /uufs/chpc.utah.edu/sys/pkg/ncarg/std
+	setenv MANPATH "$NETCDF/man:$MANPATH"
+
 	setenv PATH "/uufs/chpc.utah.edu/sys/pkg/ncarg/std/bin:$PATH"
 
 	setenv NETCDF /uufs/chpc.utah.edu/sys/pkg/netcdf/std_pgi_rh6
 	setenv LD_LIBRARY_PATH "/uufs/chpc.utah.edu/sys/pkg/netcdf/std_pgi_rh6/lib:$LD_LIBRARY_PATH"
-
-	setenv MANPATH "$NETCDF/man:$MANPATH"
-
 	
 	# JASPER Library required for grib2 processing in WPS
 	setenv JASPERLIB /uufs/chpc.utah.edu/sys/installdir/jasper/1.900.1-atmos07102015/lib
@@ -65,12 +65,14 @@ else if ($UUFSCELL == "kingspeak.peaks") then
 	
 	# My WRF Settings
     setenv NETCDF /uufs/chpc.utah.edu/sys/pkg/netcdf/std_pgi_rh6
-	setenv WRF_EM_CORE 1
-	setenv WRFIO_NCD_LARGE_FILE_SUPPORT 1
-	setenv LD_LIBRARY_PATH "/uufs/chpc.utah.edu/sys/pkg/netcdf/std_rh6/lib:$LD_LIBRARY_PATH"
-	setenv LD_LIBRARY_PATH "/uufs/chpc.utah.edu/sys/pkg/openmotif/std_rh6/lib64:$LD_LIBRARY_PATH"
 	setenv MANPATH "$NETCDF/man:$MANPATH"
 	
+	setenv WRF_EM_CORE 1
+	setenv WRFIO_NCD_LARGE_FILE_SUPPORT 1
+	
+	setenv LD_LIBRARY_PATH "/uufs/chpc.utah.edu/sys/pkg/netcdf/std_rh6/lib:$LD_LIBRARY_PATH"
+	setenv LD_LIBRARY_PATH "/uufs/chpc.utah.edu/sys/pkg/openmotif/std_rh6/lib64:$LD_LIBRARY_PATH"
+		
 	setenv NCARG_ROOT /uufs/chpc.utah.edu/sys/pkg/ncarg/std
     setenv PATH "/uufs/chpc.utah.edu/sys/pkg/ncarg/std/bin:$PATH"
 	
