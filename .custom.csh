@@ -8,12 +8,18 @@ setenv NCARG_ROOT /uufs/chpc.utah.edu/common/home/u0553130/NCL						# Do I need 
 setenv PATH $NCARG_ROOT/bin:$PATH													# Do I need this???
 
 # Matlab
-module load matlab/R2014a	#Old Matlab
+#module load matlab/R2014a	#Old Matlab
 #module load matlab		#Defult Matlab
 
 # Python
 module load python/2.7.3
-	  
+#module load python/2.7.11  # Am I ready to make this change??
+
+# rclone (for transfering files to Horel buckets)
+module load rclone
+
+# GrADS (for creating .idx files for grib2 files)
+module load grads	  
 	  
 #---------------------------------------------------------------------------
 # Do Ember specific initializations
