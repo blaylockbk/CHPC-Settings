@@ -13,7 +13,7 @@ setenv PATH $NCARG_ROOT/bin:$PATH													# Do I need this???
 
 # Python
 module load python/2.7.3
-#module load python/2.7.11  # Am I ready to make this change??
+module load python/2.7.11 # Load this if 2.7.3 isn't available
 
 # rclone (for transfering files to Horel buckets)
 module load rclone
