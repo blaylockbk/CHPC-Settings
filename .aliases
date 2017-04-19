@@ -77,3 +77,5 @@ alias thredds_down 'sudo /uufs/hiddenarch.arches/host/pkg/tomcat/std/bin/shutdow
 alias thredds_start 'sudo /uufs/hiddenarch.arches/host/pkg/tomcat/std/bin/startup.sh'
 
 alias panoply '/uufs/chpc.utah.edu/sys/pkg/panoply/4.0.3/panoply.sh'
+
+alias wx 'curl http://wttr.in/slc'

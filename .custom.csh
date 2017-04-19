@@ -13,13 +13,10 @@ setenv PATH $NCARG_ROOT/bin:$PATH													# Do I need this???
 
 # Python
 module load python/2.7.3
-module load python/2.7.11 # Load this if 2.7.3 isn't available
+module load python/2.7.11 # Load this if available
 
 # rclone (for transfering files to Horel buckets)
 module load rclone
-
-# GrADS (for creating .idx files for grib2 files)
-module load grads	  
 	  
 #---------------------------------------------------------------------------
 # Do Ember specific initializations
@@ -36,7 +33,7 @@ if ($UUFSCELL == "ember.arches") then
 	module load pgi
 	module load mvapich2
 	module load perl
-    module load ncarg/6.1.2
+	module load ncarg/6.1.2
 
 	setenv PERL5LIB /uufs/chpc.utah.edu/sys/pkg/perllib
 
@@ -47,11 +44,11 @@ if ($UUFSCELL == "ember.arches") then
 
 	setenv NETCDF /uufs/chpc.utah.edu/sys/pkg/netcdf/std_pgi_rh6
 	setenv LD_LIBRARY_PATH "/uufs/chpc.utah.edu/sys/pkg/netcdf/std_pgi_rh6/lib:$LD_LIBRARY_PATH"
-	
+
 	# JASPER Library required for grib2 processing in WPS
 	setenv JASPERLIB /uufs/chpc.utah.edu/sys/installdir/jasper/1.900.1-atmos07102015/lib
 	setenv JASPERINC  /uufs/chpc.utah.edu/sys/installdir/jasper/1.900.1-atmos07102015/include
-    echo "Loaded Ember Settings"
+	echo "Loaded Ember Settings"
 	echo ""
 
 #---------------------------------------------------------------------------
