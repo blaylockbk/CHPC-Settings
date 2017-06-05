@@ -3,22 +3,10 @@
 #ncview
 module load ncview
 
-# NCL
-setenv NCARG_ROOT /uufs/chpc.utah.edu/common/home/u0553130/NCL						# Do I need this???
-setenv PATH $NCARG_ROOT/bin:$PATH													# Do I need this???
-
-# Matlab
-#module load matlab/R2014a	#Old Matlab
-#module load matlab		#Defult Matlab
-
-# Python
-module load python/2.7.3
-module load python/2.7.11 # Load this if available
-
-# rclone (for transfering files to Horel buckets)
+# rclone (for transfering files to Pando)
 module load rclone
-	  
-#---------------------------------------------------------------------------
+
+#------------------------------------------------------------------------------
 # Do Ember specific initializations
 if ($UUFSCELL == "ember.arches") then
 	echo ""
@@ -27,31 +15,21 @@ if ($UUFSCELL == "ember.arches") then
 	echo "==============================="
 	echo ""
 	module load intel
+	module load python/2.7.11
 
-#you can add custom module loads here
-## DONT HAVE TO SOURCE THINGS. JUST USE 'module load' INSTEAD
-	module load pgi
-	module load mvapich2
-	module load perl
+	module load pgi/16.9
+	module load mpich/3.2.p
 	module load ncarg/6.1.2
-
-	setenv PERL5LIB /uufs/chpc.utah.edu/sys/pkg/perllib
-
-	setenv NCARG_ROOT /uufs/chpc.utah.edu/sys/pkg/ncarg/std
-	setenv MANPATH "$NETCDF/man:$MANPATH"
-
-	setenv PATH "/uufs/chpc.utah.edu/sys/pkg/ncarg/std/bin:$PATH"
-
-	setenv NETCDF /uufs/chpc.utah.edu/sys/pkg/netcdf/std_pgi_rh6
-	setenv LD_LIBRARY_PATH "/uufs/chpc.utah.edu/sys/pkg/netcdf/std_pgi_rh6/lib:$LD_LIBRARY_PATH"
+	module load hdf5/1.8.17
+	module load netcdf-c/4.4.1
+	module load netcdf-f/4.4.4.p
+	setenv NETCDF $NETCDFF
 
 	# JASPER Library required for grib2 processing in WPS
 	setenv JASPERLIB /uufs/chpc.utah.edu/sys/installdir/jasper/1.900.1-atmos07102015/lib
 	setenv JASPERINC  /uufs/chpc.utah.edu/sys/installdir/jasper/1.900.1-atmos07102015/include
-	echo "Loaded Ember Settings"
-	echo ""
 
-#---------------------------------------------------------------------------
+
 # Do Kingspeak specific initializations
 else if ($UUFSCELL == "kingspeak.peaks") then
 	echo ""
@@ -59,77 +37,33 @@ else if ($UUFSCELL == "kingspeak.peaks") then
 	echo "Hi Brian. Welcome to Kingspeak!"
 	echo "==============================="
 	echo ""
-	
 	module load intel
-	module load pgi
-	module load mvapich2
-#   module load netcdf-f
-#	module load perl
-	
-	# My WRF Settings
-    setenv NETCDF /uufs/chpc.utah.edu/sys/pkg/netcdf/std_pgi_rh6
-	setenv MANPATH "$NETCDF/man:$MANPATH"
-	
-	setenv WRF_EM_CORE 1
-	setenv WRFIO_NCD_LARGE_FILE_SUPPORT 1
-	
-	setenv LD_LIBRARY_PATH "/uufs/chpc.utah.edu/sys/pkg/netcdf/std_rh6/lib:$LD_LIBRARY_PATH"
-	setenv LD_LIBRARY_PATH "/uufs/chpc.utah.edu/sys/pkg/openmotif/std_rh6/lib64:$LD_LIBRARY_PATH"
-		
-	setenv NCARG_ROOT /uufs/chpc.utah.edu/sys/pkg/ncarg/std
-    setenv PATH "/uufs/chpc.utah.edu/sys/pkg/ncarg/std/bin:$PATH"
+	module load python/2.7.11
+
+	module load pgi/16.9
+	module load mpich/3.2.p
+	module load ncarg/6.1.2
+	module load hdf5/1.8.17
+	module load netcdf-c/4.4.1
+	module load netcdf-f/4.4.4.p
+	setenv NETCDF $NETCDFF
 	
 	# JASPER Library required for grib2 processing in WPS
 	setenv JASPERLIB /uufs/chpc.utah.edu/sys/installdir/jasper/1.900.1-atmos07102015/lib
 	setenv JASPERINC  /uufs/chpc.utah.edu/sys/installdir/jasper/1.900.1-atmos07102015/include
 
 
-#---------------------------------------------------------------------------	
-# Do meso1, 2, 3, 4 specific initializations
-# (note: some of these settings don't load correctly for some reason...
-# it's probably CHPC's fault. JK. I don't know what's going on.)
-# Still, I'm having trouble compiling WRF on meso3 and meso4. Sometimes
-# it works, other times it doesn't.
+# Do Hiddenarches initializations
+# includes meso1, meso2, meso3, and meso4
 else if ($UUFSCELL == "hiddenarch.arches") then
-	
 	module load intel
-	module load pgi
-	module load mvapich2
-#   module load netcdf-f
-#	module load perl
-	
-	# My WRF Settings
-    setenv NETCDF /uufs/chpc.utah.edu/sys/pkg/netcdf/std_pgi_rh6
-	setenv WRF_EM_CORE 1
-	setenv WRFIO_NCD_LARGE_FILE_SUPPORT 1
-	setenv LD_LIBRARY_PATH "/uufs/chpc.utah.edu/sys/pkg/netcdf/std_rh6/lib:$LD_LIBRARY_PATH"
-	setenv LD_LIBRARY_PATH "/uufs/chpc.utah.edu/sys/pkg/openmotif/std_rh6/lib64:$LD_LIBRARY_PATH"
-	setenv MANPATH "$NETCDF/man:$MANPATH"
-	
-	setenv NCARG_ROOT /uufs/chpc.utah.edu/sys/pkg/ncarg/std
-    setenv PATH "/uufs/chpc.utah.edu/sys/pkg/ncarg/std/bin:$PATH"
-	
-	# JASPER Library required for grib2 processing in WPS
-	setenv JASPERLIB /uufs/chpc.utah.edu/sys/installdir/jasper/1.900.1-atmos07102015/lib
-	setenv JASPERINC  /uufs/chpc.utah.edu/sys/installdir/jasper/1.900.1-atmos07102015/include
+	module load python/2.7.3 # because it hasn't been updated to CentOS 7
 
-	
-#---------------------------------------------------------------------------	
+
 # Do Lonepeak specific initializations
+# includes wx1, wx2, w3, wx4, meteo19
 else if ($UUFSCELL == "lonepeak.peaks") then
 	module load intel
-#you can add custom module loads here
+	module load python/2.7.11
 
-#---------------------------------------------------------------------------
-# Do Ash specific initializations
-else if ($UUFSCELL == "ash.peaks") then
-	module load intel
-#you can add custom module loads here
-
-#---------------------------------------------------------------------------
-#---------------------------------------------------------------------------
 endif
-
-
-# Recycled Stuff
-# setenv LD_LIBRARY_PATH "/usr/local/lib:$LD_LIBRARY_PATH"
