@@ -68,6 +68,10 @@ alias WRF4 'cd /uufs/chpc.utah.edu/common/home/horel-group4/model/bblaylock && l
 alias WRF 'cd /compute1/scratch/bblaylock/ && ls -lh'
 
 
+# ---- SSH -------------------------------------------------------------------
+alias osg 'ssh blaylockbk@login.osgconnect.net'
+alias horse 'ssh mesohorse@meso1.chpc.utah.edu'
+
 # ---- Other ------------------------------------------------------------------
 alias ldm 'sudo su - ldm'
 
