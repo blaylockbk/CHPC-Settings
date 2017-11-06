@@ -14,9 +14,10 @@ if ($UUFSCELL == "ember.arches") then
 	echo "Hi Brian. Welcome to Ember!"
 	echo "==============================="
 	echo ""
-	module load intel
+	## dont need this?? module load intel
 	module load python/2.7.11
 
+	# WRF
 	module load pgi/16.9
 	module load mpich/3.2.p
 	module load ncarg/6.1.2
@@ -37,9 +38,10 @@ else if ($UUFSCELL == "kingspeak.peaks") then
 	echo "Hi Brian. Welcome to Kingspeak!"
 	echo "==============================="
 	echo ""
-	module load intel
+	# Don't need this?? module load intel
 	module load python/2.7.11
 
+	# WRF
 	module load pgi/16.9
 	module load mpich/3.2.p
 	module load ncarg/6.1.2
