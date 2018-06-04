@@ -6,6 +6,9 @@ module load ncview
 # rclone (for transfering files to Pando)
 module load rclone
 
+# wgrib2
+module load wgrib2
+
 #------------------------------------------------------------------------------
 # Do Ember specific initializations
 if ($UUFSCELL == "ember.arches") then

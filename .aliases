@@ -55,7 +55,9 @@ alias archive 'cd /uufs/chpc.utah.edu/common/home/horel-group/archive'
 alias horel-group 'cd /uufs/chpc.utah.edu/common/home/horel-group/'
 alias ozone 'cd /uufs/chpc.utah.edu/common/home/horel-group4/gslso3s/ && ls -lh'
 alias gl 'cd /uufs/chpc.utah.edu/host/gl'
+alias pando 'cd /uufs/chpc.utah.edu/common/home/horel-group7/'
 
+alias cgi 'chmod 755 /uufs/chpc.utah.edu/common/home/u0553130/public_html/Brian_Blaylock/cgi-bin/*.cgi'
 
 # ---- WRF --------------------------------------------------------------------
 # WRF on horel-group3
