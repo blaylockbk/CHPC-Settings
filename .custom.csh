@@ -1,5 +1,7 @@
 #!/bin/tcsh
 
+module use ~/BB_modules
+
 #ncview
 module load ncview
 
