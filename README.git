@@ -5,7 +5,7 @@ Perfomrance Computing (CHPC) environment at the University of
 Utah.
 
 .tcshrc     - Settings that you arn't supposed to tweek, but I 
-              added a line at the bottom for know. That probably
+              added a line at the bottom for now. That probably
               should be moved to the .custom file.
 
 .aliases    - My personal aliases. Not sure what everything does
