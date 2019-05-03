@@ -2,6 +2,11 @@
 
 module use ~/BB_modules
 
+# Load my custom python build by default
+# Can't load my anaconda first, becuase it interferes with 
+# loading Jupyter Lab
+#module load bbanaconda3 # Need to do something else
+
 #ncview
 module load ncview
 

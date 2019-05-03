@@ -72,7 +72,7 @@ alias WRF 'cd /compute1/scratch/bblaylock/ && ls -lh'
 
 # ---- SSH -------------------------------------------------------------------
 alias osg 'ssh blaylockbk@login.osgconnect.net'
-alias horse 'ssh mesohorse@meso1.chpc.utah.edu'
+alias horse 'sudo su - mesohorse'
 alias meso1 'ssh meso1.chpc.utah.edu'
 alias meso2 'ssh meso2.chpc.utah.edu'
 alias meso3 'ssh meso3.chpc.utah.edu'
